@@ -64,8 +64,11 @@
               <ul class="tree-menu" v-show="item.menuName === toggleName || item.defaultActive">
                 <li v-for="(subitem, subindex) in item.menuSubLink" :key="subindex" :class="currentUrl === subitem.menuUrl ? 'active':''">
                   <router-link :to="subitem.menuUrl">
-                    <i :class="subitem.menuIcon"></i>
-                    <span>{{subitem.menuName}}</span>
+                    <span class="fl_left_wrap">
+                      <i class="iconfont icon-yuandianxiao1 fl_left"></i>
+                      <i class="fl_left" :class="['iconfont',  'icon-yuandiancaidan']"></i>
+                    </span>
+                    <span class="right">{{subitem.menuName}}</span>
                   </router-link>
                 </li>
               </ul>
@@ -91,7 +94,6 @@ export default {
     '$route' () {
       this.currentUrl = this.$route.fullPath // 实时监测当前路由的变化并且赋值
     }
-
   },
   methods: {
     isToggle (name, defaultActive) {
@@ -105,6 +107,7 @@ export default {
     },
     clearDefaultActive () {
       this.menulist.forEach(item => {
+        console.log(this.$delete(item, 'defaultActive'))
         this.$delete(item, 'defaultActive')
       })
     }
@@ -187,7 +190,6 @@ export default {
 
     overflow: hidden;
   }
-
   .sliderToggle-enter,
   .sliderToggle-leave-to {
     overflow: hidden;
@@ -199,6 +201,20 @@ export default {
 
   // 侧边栏全局样式
   .sidebar {
+    .fl_left_wrap{
+      display: inline-block;
+      width: 30px;
+      &>:nth-child(1) {
+        padding-top: 10px;
+      }
+      .fl_left{
+        display: block;
+      }
+    }
+    .right{
+      display: inline-block;
+      //  vertical-align: middle;
+    }
     position: absolute;
     top: 0;
     left: 0;
@@ -206,7 +222,7 @@ export default {
     min-height: 100%;
     z-index: 810;
     transition: all 0.3s linear;
-    background-color: #222d32;
+    background-color: #fff;
     .sidebar-menu {
       list-style: none;
       margin: 0;
@@ -219,7 +235,7 @@ export default {
         text-decoration: none;
         color: #8aa4af;
         &:hover {
-          color: #7351ff;
+          color: #3a8ee6;
         }
       }
       ul {
@@ -253,13 +269,13 @@ export default {
         }
         &.active {
           >a {
-            border-left: 3px solid #3c8dbc;
+            border-left: 3px solid #3a8ee6;
             color: #3a8ee6;
           }
         }
         >.tree-menu {
           margin: 0 1px;
-          background: #2c3b41;
+          background: #fff;
           list-style: none;
           padding: 0;
           margin: 0;

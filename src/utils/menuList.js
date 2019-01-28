@@ -1,6 +1,6 @@
 export const MENULIST = [
   {
-    menuName: '客户管理',
+    menuName: '基础数据管理',
     menuIcon: 'icon-bingtu',
     menuSubLink: [
       {
@@ -8,13 +8,29 @@ export const MENULIST = [
         menuUrl: '/index'
       },
       {
-        menuName: '渠道',
+        menuName: '渠',
         menuUrl: '/login'
+      },
+      {
+        menuName: '告主',
+        menuUrl: '/index1'
+      },
+      {
+        menuName: '渠道',
+        menuUrl: '/login2'
+      },
+      {
+        menuName: '广主',
+        menuUrl: '/index2'
+      },
+      {
+        menuName: '道',
+        menuUrl: '/login3'
       }
     ]
   },
   {
-    menuName: '广告管理',
+    menuName: '企业管理',
     menuIcon: 'icon-company',
     menuSubLink: [
       {
@@ -28,22 +44,22 @@ export const MENULIST = [
     ]
   },
   {
-    menuName: '投放管理',
-    menuIcon: 'icon-company',
+    menuName: '任务管理',
+    menuIcon: 'icon-renwuguanli',
     menuSubLink: [
       {
-        menuName: '广告位',
+        menuName: '任务新增',
         menuUrl: '/puton/area'
       },
       {
-        menuName: '广告规格',
+        menuName: '任务查询',
         menuUrl: '/puton/regular'
       }
     ]
   },
   {
-    menuName: '数据统计',
-    menuIcon: 'icon-company',
+    menuName: '用户管理',
+    menuIcon: 'icon-yonghuguanli-',
     menuSubLink: [
       {
         menuName: '广告主',
@@ -56,13 +72,17 @@ export const MENULIST = [
     ]
   },
   {
-    menuName: '管理者',
-    menuIcon: 'icon-company',
-    menuUrl: '/manager'
-  },
-  {
-    menuName: '操作日志',
-    menuIcon: 'icon-company',
-    menuUrl: '/logger'
+    menuName: '管理功能',
+    menuIcon: 'icon-chanpinguanli',
+    menuSubLink: [
+      {
+        menuName: '广告主',
+        menuUrl: '/status/adhost'
+      },
+      {
+        menuName: '渠道',
+        menuUrl: '/status/channel'
+      }
+    ]
   }
 ]
