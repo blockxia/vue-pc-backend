@@ -1,47 +1,3 @@
-<!--<template>
-<div id="slideBar">
-  <el-row class="tac">
-    <el-col :span="12">
-      <el-menu
-        default-active="2"
-        class="el-menu-vertical-demo"
-        @open="handleOpen"
-        @close="handleClose"
-        background-color="#fff"
-        text-color="#ccc"
-        active-text-color="blue"
-        :router="true"
-      >
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="iconfont icon-bingtu"></i>
-            <span>基础数据管理</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="workItemManager"> 工作项管理</el-menu-item>
-            <el-menu-item index="workItemList">工作项列表</el-menu-item>
-            <el-menu-item index="postList">岗位列表</el-menu-item>
-            <el-menu-item index="postManager">岗位管理</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-submenu index="2">
-          <template slot="title">
-            <i class="iconfont icon-company"></i>
-            <i class="iconfont icon-renwuguanli"></i>
-            <i class="iconfont icon-guanli"></i>
-            <i class="iconfont icon-yonghuguanli-"></i>
-            <span>企业管理</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="2-1">企业列表</el-menu-item>
-            <el-menu-item index="2-2">企业管理</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-      </el-menu>
-    </el-col>
-  </el-row>
-</div>
-</template>-->
 <template>
   <div class="sidebar" >
     <ul class="sidebar-menu ">
@@ -66,7 +22,7 @@
                   <router-link :to="subitem.menuUrl">
                     <span class="fl_left_wrap">
                       <i class="iconfont icon-yuandianxiao1 fl_left"></i>
-                      <i class="fl_left" :class="['iconfont',  'icon-yuandiancaidan']"></i>
+                      <i class="fl_left last" :class="['iconfont',  'icon-yuandiancaidan']"></i>
                     </span>
                     <span class="right">{{subitem.menuName}}</span>
                   </router-link>
@@ -82,14 +38,14 @@
 <script>
 import { MENULIST } from '../utils/menuList' // 引入的自定义菜单数据
 export default {
-  data: function () {
+  data () {
     return {
       menulist: MENULIST, // 自定义菜单数据
       currentUrl: '', // 当前浏览器的url
       toggleName: '' // 菜单子项目名称
     }
   },
-  props: ['toggle', 'padMode'], // 这里是用来构成布局响应传递的props,单一组件不用管他
+  //  props: ['toggle', 'padMode'], // 这里是用来构成布局响应传递的props,单一组件不用管他
   watch: {
     '$route' () {
       this.currentUrl = this.$route.fullPath // 实时监测当前路由的变化并且赋值
@@ -128,59 +84,12 @@ export default {
       })
     }) */
   },
-  mounted: function () {
+  mounted () {
   }
 }
 </script>
-<!--<script>
-export default {
-  name: 'slideBar',
-  data  () {
-    return {}
-  },
-  methods: {
-    /* goItem (path) {
-      this.$router.push(path)
-    }, */
-    handleOpen (key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleClose (key, keyPath) {
-      console.log(key, keyPath)
-    }
-  }
-}
-</script>-->
-<!--<style lang="less">
-  @import "../assets/less/common";
-  #slideBar{
-    .el-submenu__title{
-      //  text-indent: 32px;
-      /*text-align: left;*/
-    }
-    .el-submenu__title .el-submenu__icon-arrow, .el-icon-arrow-down {
-       color: #909399;
-    }
-    .el-col-12 {
-      width: 18%;
-    }
-    .tac{
-      height: 200px;
-    }
-    .gray{
-      color:gray;
-    }
-    .blue{
-      margin-right: 10px;
-      border-left:dotted 5px #181199;
-    }
-    .dot{
-      margin-right: 10px;
-      border-left:dotted 5px #99927d;
-    }
-  }
-</style>-->
 <style  lang="less">
+  @import "../assets/less/common";
   // 自定义过渡效果
   .sliderToggle-enter-active,
   .sliderToggle-leave-active {
@@ -281,6 +190,11 @@ export default {
           margin: 0;
           .tree-menu {
             padding-left: 20px;
+          }
+          &>li:last-child{
+            .last{
+              display: none;
+            }
           }
           >li {
             margin: 0;
